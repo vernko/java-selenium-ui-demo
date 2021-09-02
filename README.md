@@ -17,10 +17,10 @@ These should all be part of the pom.xml file.
 - Surefire - version 3.0.0-M5
 
 #### Design Pattern
-- Page Object Model
+- Page Object Model - if you haven't used the Page Object Model before, check out the Page Object Model section below.
 
 ##
-###GETTING STARTED
+### GETTING STARTED
 You will need the following on your computer in order to work on this project:
 * Java - Using version 12 for this project
 * Maven - Check out the Maven section below for more info on installing it
@@ -158,6 +158,12 @@ Below are some good resources to help with Test NG if you have never used it bef
 TestNG's official site - [TestNG](https://testng.org/doc/)
 
 A good tutorial [Test Automation University](https://testautomationu.applitools.com/) - [Intro to TestNG](https://testautomationu.applitools.com/introduction-to-testng/index.html)
+
+##
+### Selenium
+If you haven't used Selenium before, basically it's a tool that helps with automate tasks. In testing, we use it to help automate user flows especially web-related items.
+
+Selenium's official site - [Selenium](https://www.theredx.com/)
 
 ##
 #### Page Object Model
