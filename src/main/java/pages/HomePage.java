@@ -19,8 +19,8 @@ public class HomePage {
     private By lastNameField = By.cssSelector("[name=\"input_9\"]");
     private By emailField = By.cssSelector("[name=\"input_2\"]");
     private By phoneField = By.cssSelector("[name=\"input_7\"]");
-    private By submitBtn = By.cssSelector(".gform_button");
-    private By videoPlayer = By.id("player");
+    private By submitBtn = By.cssSelector("#gform_submit_button_16");
+    private By clsBtn = By.cssSelector(".close-btn");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -28,7 +28,6 @@ public class HomePage {
     }
 
     public void clickWatchDemo() {
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(cookieWindow));
         wait.until(ExpectedConditions.visibilityOfElementLocated(watchDemoBtn));
         driver.findElement(watchDemoBtn).click();
     }
@@ -38,6 +37,7 @@ public class HomePage {
         inputLastName(lastName);
         inputEmail(email);
         inputPhoneNumber(phone);
+        driver.findElement(submitBtn).submit();
     }
 
     private void inputFirstName(String firstName){
@@ -60,7 +60,7 @@ public class HomePage {
     }
 
     public boolean videoPlayerDisplayed(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(videoPlayer));
-        return driver.findElement(videoPlayer).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(clsBtn));
+        return driver.findElement(clsBtn).isDisplayed();
     }
 }
