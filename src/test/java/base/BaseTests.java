@@ -11,12 +11,10 @@ public class BaseTests {
     protected HomePage homePage;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://www.theredx.com/");
-        driver.manage().window().maximize();
-
         homePage = new HomePage(driver);
     }
 
