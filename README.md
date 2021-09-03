@@ -125,11 +125,7 @@ Once you have maven installed on your device, run ```mvn -v```. This verifies ma
 
 - Test Class - run all the tests in an entire class
 
-```mvn test -Dtest=ClassName```
-
-- Individual Tests
-
-```mvn test -Dtest=ClassName#testMethodName```
+```mvn test -Dtest=ClassName test```
 
 #### Automation Suite
 There are 2 ways to run the entire suite for automation
