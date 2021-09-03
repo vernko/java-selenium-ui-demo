@@ -9,9 +9,8 @@ public class HomePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By cookieWindow = By.cssSelector("#cookie-window");
-    private By logoSlidebar = By.cssSelector(".logos");
     private By watchDemoBtn = By.cssSelector(".btn.btn-red-outline.gated");
+    private By loginBtn = By.cssSelector(".login-btn");
 
     //Demo Form
     private By watchDemoFormContainer = By.id("gform_fields_16");
@@ -25,6 +24,14 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 15);
+    }
+
+    public LoginPage goToLogin(){
+        String originWindow = getOriginalWindow();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loginBtn));
+        driver.findElement(loginBtn).click();
+        switchTabs(originWindow);
+        return new LoginPage(driver);
     }
 
     public void clickWatchDemo() {
@@ -62,5 +69,21 @@ public class HomePage {
     public boolean videoPlayerDisplayed(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(clsBtn));
         return driver.findElement(clsBtn).isDisplayed();
+    }
+
+    private String getOriginalWindow() {
+        String originalWindow = driver.getWindowHandle();
+        return originalWindow;
+    }
+
+    public void switchTabs(String original) {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+        for (String windowHandle : driver.getWindowHandles()) {
+            if(!original.contentEquals(windowHandle)) {
+                driver.switchTo().window(windowHandle);
+                break;
+            }
+        }
     }
 }

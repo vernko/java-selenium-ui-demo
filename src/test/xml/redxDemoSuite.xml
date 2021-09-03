@@ -8,6 +8,12 @@
                     <include name="testCanSubmitWatchDemoForm" />
                 </methods>
             </class>
+            <class name="login.LoginTests">
+                <methods>
+                    <include name="testCorrectErrorDisplaysForUsernameField" />
+                    <include name="testCorrectErrorDisplaysForPasswordField" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
