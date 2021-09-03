@@ -23,6 +23,11 @@
                     <include name="testPostalCodeFieldErrorMessageDisplays" />
                 </methods>
             </class>
+            <class name="successStories.SuccessStoriesTests">
+                <methods>
+                    <include name="testCanViewSuccessStory" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

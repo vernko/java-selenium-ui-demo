@@ -12,6 +12,7 @@ public class HomePage {
     private By buyNowBtn = By.cssSelector("[href=\"https://signup.theredx.com/\"]");
     private By watchDemoBtn = By.cssSelector(".btn.btn-red-outline.gated");
     private By loginBtn = By.cssSelector(".login-btn");
+    private By successStorTab = By.id("menu-item-30");
 
     //Demo Form
     private By watchDemoFormContainer = By.id("gform_fields_16");
@@ -102,5 +103,11 @@ public class HomePage {
                 break;
             }
         }
+    }
+
+    public SuccessStoriesPage gotoSuccessStories() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(successStorTab));
+        driver.findElement(successStorTab).click();
+        return new SuccessStoriesPage(driver);
     }
 }
