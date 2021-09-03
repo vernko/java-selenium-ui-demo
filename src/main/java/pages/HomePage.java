@@ -9,6 +9,7 @@ public class HomePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    private By buyNowBtn = By.cssSelector("[href=\"https://signup.theredx.com/\"]");
     private By watchDemoBtn = By.cssSelector(".btn.btn-red-outline.gated");
     private By loginBtn = By.cssSelector(".login-btn");
 
@@ -20,10 +21,22 @@ public class HomePage {
     private By phoneField = By.cssSelector("[name=\"input_7\"]");
     private By submitBtn = By.cssSelector("#gform_submit_button_16");
     private By clsBtn = By.cssSelector(".close-btn");
+    private By formErrorContainer = By.id("gform_16_validation_container");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 15);
+    }
+
+    public SignUpPage clickBuyNow() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(buyNowBtn));
+        driver.findElement(buyNowBtn).click();
+        return new SignUpPage(driver);
+    }
+
+    public void clickWatchDemo() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(watchDemoBtn));
+        driver.findElement(watchDemoBtn).click();
     }
 
     public LoginPage goToLogin(){
@@ -34,36 +47,40 @@ public class HomePage {
         return new LoginPage(driver);
     }
 
-    public void clickWatchDemo() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(watchDemoBtn));
-        driver.findElement(watchDemoBtn).click();
-    }
-
     public void submitWatchDemoForm(String firstName, String lastName, String email, String phone) {
         inputFirstName(firstName);
         inputLastName(lastName);
         inputEmail(email);
         inputPhoneNumber(phone);
-        driver.findElement(submitBtn).submit();
+        clickSubmit();
     }
 
-    private void inputFirstName(String firstName){
+    public void inputFirstName(String firstName){
         wait.until(ExpectedConditions.visibilityOfElementLocated(watchDemoFormContainer));
         driver.findElement(firstNameField).sendKeys(firstName);
     }
 
-    private void inputLastName(String lastName){
+    public void inputLastName(String lastName){
         wait.until(ExpectedConditions.visibilityOfElementLocated(watchDemoFormContainer));
         driver.findElement(lastNameField).sendKeys(lastName);
     }
 
-    private void inputEmail(String email){
+    public void inputEmail(String email){
         wait.until(ExpectedConditions.visibilityOfElementLocated(watchDemoFormContainer));
         driver.findElement(emailField).sendKeys(email);
     }
 
-    private void inputPhoneNumber(String phone) {
+    public void inputPhoneNumber(String phone) {
         driver.findElement(phoneField).sendKeys(phone);
+    }
+
+    public void clickSubmit() {
+        driver.findElement(submitBtn).submit();
+    }
+
+    public String getErrorMessage(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(formErrorContainer));
+        return driver.findElement(formErrorContainer).getText();
     }
 
     public boolean videoPlayerDisplayed(){

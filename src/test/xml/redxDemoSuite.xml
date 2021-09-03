@@ -6,12 +6,21 @@
             <class name="home.HomeTests">
                 <methods>
                     <include name="testCanSubmitWatchDemoForm" />
+                    <include name="testErrorMessageDisplays" />
                 </methods>
             </class>
             <class name="login.LoginTests">
                 <methods>
                     <include name="testCorrectErrorDisplaysForUsernameField" />
                     <include name="testCorrectErrorDisplaysForPasswordField" />
+                </methods>
+            </class>
+            <class name="signup.SignUpTests">
+                <methods>
+                    <include name="testEnterValidContactInfo" />
+                    <include name="testEmailFieldErrorMessageDisplays" />
+                    <include name="testPhoneFieldErrorMessageDisplays" />
+                    <include name="testPostalCodeFieldErrorMessageDisplays" />
                 </methods>
             </class>
         </classes>
