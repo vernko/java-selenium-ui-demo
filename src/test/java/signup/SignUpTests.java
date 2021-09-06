@@ -36,7 +36,7 @@ public class SignUpTests extends BaseTests {
         String postalCodeErr = "Please, enter a valid postal code.";
 
         SignUpPage signUpPage = homePage.clickBuyNow();
-        signUpPage.inputEmail("test");
+        signUpPage.inputPostalCode("test");
         Assert.assertEquals(postalCodeErr, signUpPage.getError());
     }
 }
