@@ -157,7 +157,7 @@ A good tutorial [Test Automation University](https://testautomationu.applitools.
 
 ##
 ### Selenium
-If you haven't used Selenium before, basically it's a tool that helps with automate tasks. In testing, we use it to help automate user flows especially web-related items.
+If you haven't used Selenium before, basically it's a tool that helps to help automate tasks. In testing, we use it to help automate user flows especially web-related items.
 
 Selenium's official site - [Selenium](https://www.theredx.com/)
 
