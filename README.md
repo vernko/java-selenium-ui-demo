@@ -1,4 +1,4 @@
-# redx-demo
+# java-selenium-ui-demo
 ### Purpose
 The purpose of this project is to automate UI tests of the website, https://www.theredx.com/ using Java & Selenium with Maven.
 
